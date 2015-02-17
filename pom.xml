@@ -18,6 +18,7 @@
         <version.maven-resources-plugin>2.7</version.maven-resources-plugin>
         <version.maven-install-plugin>2.4</version.maven-install-plugin>
         <version.maven-jar-plugin>2.5</version.maven-jar-plugin>
+        <project-short-description>A python library for running scripts towards ENM</project-short-description>
     </properties>
 
     <modules>
