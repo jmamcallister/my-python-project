@@ -17,7 +17,7 @@
         <version.maven-dependency-plugin>2.10</version.maven-dependency-plugin>
         <version.maven-resources-plugin>2.7</version.maven-resources-plugin>
         <version.maven-install-plugin>2.4</version.maven-install-plugin>
-        <!-- <version.maven-jar-plugin>2.5</version.maven-jar-plugin> -->
+        <version.maven-jar-plugin>2.5</version.maven-jar-plugin>
     </properties>
 
     <modules>
@@ -53,11 +53,11 @@
                     <artifactId>maven-install-plugin</artifactId>
                     <version>${version.maven-install-plugin}</version>
                 </plugin>
-                <!-- <plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.maven-jar-plugin}</version>
-                </plugin> -->
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
