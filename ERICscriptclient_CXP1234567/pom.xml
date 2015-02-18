@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.jmamcallister</groupId>
+        <artifactId>my-python-project</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>ERICscriptclient_CXP1234567</artifactId>
+
+    <name>[my-python-project] RPM Module</name>
+    <packaging>${rpm.packaging}</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>${project.parent.artifactId}-lib</artifactId>
+            <version>${project.version}</version>
+            <type>tar.gz</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <!-- <skip>true</skip>
+                    <inherited>true</inherited>
+                    <copyright>2012 Ericsson AB All rights reserved</copyright>
+                    <summary>${stripped.artifactId}</summary>
+                    <packager>${ericsson.rstate}</packager>
+                    <group>ERI-NMS</group>
+                    <requires>
+                        <require>python &gt;= 2.6</require>
+                    </requires>
+                    <vendor>Ericsson AB</vendor>
+                    <url>www.ericsson.com</url>  -->
+                    <mappings>
+                        <mapping>
+                            <directory>/${rpm-root}/${comp-name}</directory>
+                            <filemode>775</filemode>
+                            <username>root</username>
+                            <groupname>root</groupname>
+                        </mapping>
+                        <mapping>
+                            <directory>/var/www/html/scriptclient</directory>
+                            <dependency />
+                            <sources>
+                                <source>
+                                    <location>src/main/python</location>
+                                    <excludes>
+                                        <exclude>**/*.pyc</exclude>
+                                        <exclude>**/*.gitignore</exclude>
+                                    </excludes>
+                                </source>
+                                <source>
+                                    <location>src/main/resources/</location>
+                                    <excludes>
+                                        <exclude>**/*.pyc</exclude>
+                                        <exclude>**/version.txt</exclude>
+                                        <exclude>**/*.gitignore</exclude>
+                                        <exclude>**/ETF.xml</exclude>
+                                        <exclude>**/*.sql</exclude>
+                                    </excludes>
+                                </source>
+                                <source>
+                                    <location>src/main/scripts/</location>
+                                    <excludes>
+                                        <exclude>**/*.pyc</exclude>
+                                        <exclude>**/postinstall.sh</exclude>
+                                        <exclude>**/preremove.sh</exclude>
+                                        <exclude>**/postremove.sh</exclude>
+                                        <exclude>**/*.gitignore</exclude>
+                                    </excludes>
+                                </source>
+                            </sources>
+                        </mapping>
+                    </mappings>
+                    <preinstallScriptlet>
+                        <scriptFile>src/main/scripts/preinstall.sh</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preinstallScriptlet>
+                    <postinstallScriptlet>
+                        <scriptFile>src/main/scripts/postinstall.sh</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postinstallScriptlet>
+                    <preremoveScriptlet>
+                        <scriptFile>src/main/scripts/preremove.sh</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preremoveScriptlet>
+                    <postremoveScriptlet>
+                        <scriptFile>src/main/scripts/postremove.sh</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postremoveScriptlet>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

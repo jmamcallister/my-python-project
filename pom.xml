@@ -12,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <rpm.packaging>pom</rpm.packaging>
         <version.exec-maven-plugin>1.3.2</version.exec-maven-plugin>
         <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
         <version.maven-dependency-plugin>2.10</version.maven-dependency-plugin>
@@ -19,11 +20,13 @@
         <version.maven-install-plugin>2.4</version.maven-install-plugin>
         <version.maven-jar-plugin>2.5</version.maven-jar-plugin>
         <project-short-description>A python library for running scripts towards ENM</project-short-description>
+        <version.rpm-maven-plugin>2.1-alpha-2</version.rpm-maven-plugin>
     </properties>
 
     <modules>
         <module>my-python-project-py</module>
         <module>my-python-project-lib</module>
+        <module>ERICscriptclient_CXP1234567</module>
     </modules>
 
     <build>
@@ -59,8 +62,28 @@
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.maven-jar-plugin}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>rpm-maven-plugin</artifactId>
+                    <version>${version.rpm-maven-plugin}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
+
+    <profiles>
+        <profile>
+            <id>rpmbuild</id>
+            <activation>
+                <os>
+                    <family>Linux</family>
+                </os>
+            </activation>
+            <properties>
+                <!-- Enable RPM packaging since we're building on Linux -->
+                <rpm.packaging>rpm</rpm.packaging>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

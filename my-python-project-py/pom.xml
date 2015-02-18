@@ -43,7 +43,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <outputDirectory>${project.build.directory}/${project.parent.artifactId}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>src/main/python</directory>
@@ -58,7 +58,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <outputDirectory>${project.build.directory}/${project.parent.artifactId}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>src/test/python</directory>
@@ -80,7 +80,7 @@
                         </goals>
                         <configuration>
                             <executable>python</executable>
-                            <workingDirectory>${project.build.directory}</workingDirectory>
+                            <workingDirectory>${project.build.directory}/${project.parent.artifactId}</workingDirectory>
                             <arguments>
                                 <argument>unit.py</argument>
                             </arguments>
@@ -94,7 +94,7 @@
                         </goals>
                         <configuration>
                             <executable>python</executable>
-                            <workingDirectory>${project.build.directory}</workingDirectory>
+                            <workingDirectory>${project.build.directory}/${project.parent.artifactId}</workingDirectory>
                             <arguments>
                                 <argument>acceptance.py</argument>
                             </arguments>
