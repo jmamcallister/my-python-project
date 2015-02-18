@@ -30,24 +30,18 @@
                 <artifactId>rpm-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                    <group>ERI-NMS</group>
+                    <copyright>2012 Ericsson AB All rights reserved</copyright>
                     <!-- <skip>true</skip>
                     <inherited>true</inherited>
-                    <copyright>2012 Ericsson AB All rights reserved</copyright>
                     <summary>${stripped.artifactId}</summary>
                     <packager>${ericsson.rstate}</packager>
-                    <group>ERI-NMS</group>
                     <requires>
                         <require>python &gt;= 2.6</require>
                     </requires>
                     <vendor>Ericsson AB</vendor>
                     <url>www.ericsson.com</url>  -->
                     <mappings>
-                        <mapping>
-                            <directory>/${rpm-root}/${comp-name}</directory>
-                            <filemode>775</filemode>
-                            <username>root</username>
-                            <groupname>root</groupname>
-                        </mapping>
                         <mapping>
                             <directory>/var/www/html/scriptclient</directory>
                             <dependency />
