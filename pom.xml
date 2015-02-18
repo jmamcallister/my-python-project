@@ -13,6 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <rpm.packaging>pom</rpm.packaging>
+        <lib.packaging>zip</lib.packaging>
         <version.exec-maven-plugin>1.3.2</version.exec-maven-plugin>
         <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
         <version.maven-dependency-plugin>2.10</version.maven-dependency-plugin>
@@ -82,6 +83,18 @@
             <properties>
                 <!-- Enable RPM packaging since we're building on Linux -->
                 <rpm.packaging>rpm</rpm.packaging>
+            </properties>
+        </profile>
+        <profile>
+            <id>python-lib-build</id>
+            <activation>
+                <os>
+                    <family>Linux</family>
+                </os>
+            </activation>
+            <properties>
+                <!-- Enable tar.gz packaging since we're building on Linux -->
+                <lib.packaging>tar.gz</lib.packaging>
             </properties>
         </profile>
     </profiles>

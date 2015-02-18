@@ -16,7 +16,7 @@
     <properties>
         <lib-build>${project.build.directory}/${project.parent.artifactId}</lib-build>
         <lib-dist>${lib-build}/dist</lib-dist>
-        <lib-artifact>${project.parent.artifactId}-${project.parent.version}.tar.gz</lib-artifact>
+        <lib-artifact>${project.parent.artifactId}-${project.parent.version}.${lib.packaging}</lib-artifact>
     </properties>
 
     <build>
@@ -104,7 +104,7 @@
                             <artifactId>${project.artifactId}</artifactId>
                             <version>${project.parent.version}</version>
                             <file>${lib-dist}/${lib-artifact}</file>
-                            <packaging>tar.gz</packaging>
+                            <packaging>${lib.packaging}</packaging>
                         </configuration>
                     </execution>
                      <execution>
